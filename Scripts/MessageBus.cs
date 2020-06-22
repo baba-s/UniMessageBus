@@ -87,6 +87,15 @@ namespace Kogane
 		{
 			m_callback?.Invoke();
 		}
+		
+		/// <summary>
+		/// メッセージを送信します
+		/// </summary>
+		public static void Send<T>( T data ) where T : MessageBus<T>
+		{
+			var bus = Get<T>();
+			bus.Send( data );
+		}
 	}
 
 	/// <summary>
